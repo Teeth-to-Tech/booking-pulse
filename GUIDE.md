@@ -37,7 +37,11 @@ Tick each box as you go.
 
 1. Go to **claude.com/download** and install the app for your computer.
 2. Open it and sign in. You need a **paid** Claude plan (Pro, Max, Team or Enterprise).
-3. At the top of the app, check that you can see a tab called **Code**. That's where we'll work.
+3. Find the **Code** button. Look in the **top-left corner** of the app, next to the ← → arrows.
+   There are two small buttons: a **speech bubble** (Chat) and **`</>`** (Code).
+   Click **`</>`**. That's where we'll work.
+   - Don't see it? In the menu bar choose **Claude → Check for Updates**, restart the app,
+     and check that your plan is a paid one.
 
 ### ☐ 2. Install Node.js
 
@@ -66,7 +70,7 @@ Supabase is where your app's data is stored and where it receives bookings from 
 
 ### ☐ 5. Check that everything works
 
-1. Open the Claude app and click the **Code** tab.
+1. Open the Claude app and click **`</>`** (Code) in the top-left corner, next to the ← → arrows.
 2. Under the message box, choose **Local**, and choose your **Documents** folder as the project folder.
 3. Copy this message into the box and press **Enter**:
 
@@ -171,8 +175,8 @@ Don't share them with anyone else, and don't paste them anywhere else.
 
 ### Step 4 – Give Claude your settings
 
-1. Open the Claude app → **Code** tab.
-2. Choose **Local**, and as the project folder choose the **booking-pulse** folder from step 2.
+1. Open the Claude app and click **`</>`** (Code) in the top-left corner, next to the ← → arrows.
+2. Under the message box, choose **Local**. Then choose the project folder: **Documents → GitHub → booking-pulse** (the folder from step 2).
 3. Copy this message into the box and press **Enter**:
 
    ```
