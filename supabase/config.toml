@@ -1,4 +1,4 @@
-project_id = "muntra-booking-pulse"
+project_id = "booking-pulse"
 
 # Muntra cannot send a Supabase login token, so the webhook endpoint is public
 # and protected by MUNTRA_WEBHOOK_SECRET instead.
