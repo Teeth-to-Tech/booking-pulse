@@ -31,13 +31,12 @@ Deno.serve(async (req) => {
     return reply(500, { error: "MUNTRA_API_BASE_URL and MUNTRA_API_TOKEN secrets are not set" });
   }
 
-  const authHeader = req.headers.get("Authorization") ?? "";
-  const asUser = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_ANON_KEY")!, {
-    global: { headers: { Authorization: authHeader } },
+  const supabase = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, {
     auth: { persistSession: false },
   });
 
-  const { data: userData } = await asUser.auth.getUser();
+  const token = (req.headers.get("Authorization") ?? "").replace(/^Bearer\s+/i, "");
+  const { data: userData } = await supabase.auth.getUser(token);
   if (!userData?.user) return reply(401, { error: "Sign in first" });
 
   let bookingId: number;
@@ -47,7 +46,7 @@ Deno.serve(async (req) => {
     return reply(400, { error: "Send { booking_id }" });
   }
 
-  const { data: booking } = await asUser
+  const { data: booking } = await supabase
     .from("bookings")
     .select("patient_id")
     .eq("booking_id", bookingId)

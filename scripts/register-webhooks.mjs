@@ -2,7 +2,7 @@
 // (created, updated, deleted), each pointing at your Supabase function with
 // ?secret=...&trigger=... added as webhook query parameters.
 //
-//   npm run register-webhooks          create the webhooks
+//   npm run register-webhooks          create the webhooks (skips ones that already exist)
 //   npm run register-webhooks -- --list   show webhooks already registered
 
 const required = ["MUNTRA_API_BASE_URL", "MUNTRA_API_TOKEN", "MUNTRA_WEBHOOK_SECRET", "SUPABASE_URL"];
@@ -43,7 +43,19 @@ if (process.argv.includes("--list")) {
   process.exit(0);
 }
 
+const { data: existing = [] } = await muntra("GET", "/api/webhooks");
+const alreadyRegistered = (trigger) =>
+  existing.some((hook) => {
+    const a = hook.attributes;
+    return a.model === "booking" && a.request_trigger === trigger && a.url === functionUrl && !a.deactivated_at && !a.deleted_at;
+  });
+
 for (const trigger of triggers) {
+  if (alreadyRegistered(trigger)) {
+    console.log(`Already registered: booking.${trigger}`);
+    continue;
+  }
+
   const { data: webhook } = await muntra("POST", "/api/webhooks", {
     request_method: "POST",
     model: "booking",

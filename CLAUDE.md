@@ -5,6 +5,27 @@ helping works at a dental clinic and is probably not a professional developer. E
 what you change in plain language, keep changes small, and make sure the app still runs
 after each step.
 
+## Helping with setup
+
+Participants follow `GUIDE.md` and paste prompts from it. When they ask you to set up:
+
+- Check prerequisites with `node --version` (needs 22+) and `git --version`.
+- To fill in `.env`: copy `.env.example` to `.env`, ask for one value at a time, explain
+  where to find it (the comments in `.env.example` say where), and write it in. Never print
+  the full `.env` back. Leave `MUNTRA_WEBHOOK_SECRET` empty; setup generates it.
+- Then `npm install` and `npm run setup`. Setup is safe to re-run. If it fails, explain the
+  printed "What to do" line in plain words and help fix it.
+- Start the dashboard as a background process (`npm run dashboard`) so the session isn't blocked.
+- Never ask the user to type terminal commands themselves; run them for them.
+
+## Keep GUIDE.md up to date
+
+`GUIDE.md` is the guide for participants with no technical background. Whenever you change
+setup steps, scripts, commands, `.env` values, file names, or anything a participant sees,
+update `GUIDE.md` in the same change so it stays accurate. Write it for someone who has never
+used a terminal: short sentences, exact button names, one action per line, and a ✅ line saying
+what success looks like.
+
 ## Data rules (never break these)
 
 1. **Store no patient identity.** The `bookings` table holds Muntra IDs, times, statuses
@@ -45,7 +66,8 @@ web/ dashboard ──"Show contact"──▶ supabase/functions/patient-contact 
   add it here, add a column in a new migration, and extend `minimize.test.ts`.
 - `web/` – plain HTML, CSS and JavaScript (no build step). `app.js` uses supabase-js and Chart.js
   from a CDN. Escape any value you put into `innerHTML` with `esc()`.
-- `scripts/` – Node scripts that read `.env`.
+- `scripts/` – Node scripts that read `.env`. `setup.mjs` does the whole first-time setup.
+- `GUIDE.md` – participant guide (see above). `README.md` – technical reference.
 
 ## Muntra webhook facts
 
@@ -79,5 +101,5 @@ web/ dashboard ──"Show contact"──▶ supabase/functions/patient-contact 
   `minimize.ts`.
 - `npm run test-webhook -- --minutes -25` sends a fake booking that started 25 minutes ago
   and should show up under "Not arrived yet".
-- After changing SQL: `npx supabase db push`. After changing a function:
-  `npx supabase functions deploy <name>`.
+- After adding a migration or changing a function: `npm run setup` (re-runs everything safely),
+  or `npx supabase db push --linked` / `npx supabase functions deploy <name> --use-api`.
