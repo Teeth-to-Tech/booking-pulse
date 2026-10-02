@@ -236,13 +236,18 @@ Fix it and ask Claude to run setup again. Steps already done are skipped.
 Tell Claude:
 
 ```
-Start the dashboard in the background with npm run dashboard, and tell me which address to open.
+Start the dashboard in the background with npm run dashboard and open it for me.
 ```
 
-1. Open **http://localhost:5173** in your web browser.
-2. Sign in with your `DASHBOARD_EMAIL` and `DASHBOARD_PASSWORD`.
+1. Claude opens the dashboard in a **browser pane next to the chat**. You can also open
+   **http://localhost:5180** in your normal web browser.
+2. Sign in with your `DASHBOARD_EMAIL` and `DASHBOARD_PASSWORD`. Type the password yourself:
+   Claude won't type passwords for you, and that's on purpose.
 
 You'll see an empty dashboard. That's right, no bookings have arrived yet.
+
+> Shows a different app, or says the address is in use? Tell Claude:
+> *"Something else is using port 5180. Start the dashboard on another port."*
 
 ### Step 7 – Send a pretend booking
 
@@ -406,5 +411,5 @@ Claude sometimes says no.
 | **Function** | A small piece of your app that runs online at Supabase, for example the one that receives webhooks. |
 | **API** | The way your app asks Muntra for information, for example a patient's phone number. |
 | **.env** | A settings file on your computer with your passwords and keys. Never shared. |
-| **localhost** | Your own computer. `http://localhost:5173` is your dashboard running on your computer. |
+| **localhost** | Your own computer. `http://localhost:5180` is your dashboard running on your computer. |
 | **Terminal / command** | Text instructions to the computer. Claude types these for you. |

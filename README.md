@@ -57,7 +57,7 @@ cp .env.example .env      # fill in the values; comments explain where to find e
 npm install
 npm run setup             # links Supabase, creates tables, sets secrets, deploys functions,
                           # writes web/config.js, creates your dashboard login, registers Muntra webhooks
-npm run dashboard         # http://localhost:5173
+npm run dashboard         # http://localhost:5180
 npm run test-webhook -- --minutes -25
 ```
 
@@ -66,7 +66,7 @@ npm run test-webhook -- --minutes -25
 | Command | What it does |
 |---|---|
 | `npm run setup` | Full setup from `.env` |
-| `npm run dashboard` | Serves `web/` on port 5173 |
+| `npm run dashboard` | Serves `web/` on port 5180 |
 | `npm run test-webhook` | Sends a fake booking. Options: `--minutes -25`, `--status CANCELLED`, `--trigger deleted --id 123` |
 | `npm run register-webhooks` | Registers booking webhooks in Muntra (skips existing). `-- --list` shows them |
 | `npm test` | Deno tests for the webhook allow-list |

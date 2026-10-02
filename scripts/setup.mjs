@@ -195,7 +195,7 @@ for (const { title, run } of steps) {
 console.log(`
 All done! 🎉
 
-  Start the dashboard:     npm run dashboard   → open http://localhost:5173
+  Start the dashboard:     npm run dashboard   → open http://localhost:5180
   Sign in with:            ${env("DASHBOARD_EMAIL")} and the password from .env
   Send a test booking:     npm run test-webhook -- --minutes -25
 `);

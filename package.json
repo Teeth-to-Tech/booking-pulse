@@ -9,7 +9,7 @@
     "setup": "node --env-file-if-exists=.env scripts/setup.mjs",
     "register-webhooks": "node --env-file=.env scripts/register-webhooks.mjs",
     "test-webhook": "node --env-file=.env scripts/send-test-webhook.mjs",
-    "dashboard": "npx --yes serve web -l 5173",
+    "dashboard": "npx --yes serve web -l 5180",
     "test": "DENO_NO_PACKAGE_JSON=1 deno test --allow-read supabase/functions"
   },
   "devDependencies": {
