@@ -136,8 +136,9 @@ Access token:
 4. **Database password:** click **Generate a password**.
 5. Click the **copy** icon next to the password and paste it into your note after *Database password:*.
    ⚠️ You can't see this password again later, so don't skip this.
-   *Forgot to copy it?* No problem. When the project is ready, go to **Project Settings**
-   (gear icon) → **Database** → **Reset database password**, generate a new one and copy that.
+   *Forgot to copy it?* No problem. When the project is ready, click **Database** (cylinder icon)
+   in the far-left menu → **Settings** (under *Configuration*) → **Reset database password**.
+   Generate a new one and copy that.
 6. **Region:** choose **Stockholm** (or Frankfurt). Always pick a European region.
 7. Click **Create new project**.
 8. Wait 1–2 minutes until the page stops saying the project is being set up.
@@ -223,6 +224,9 @@ eight steps tick by:
 [8/8] Connecting Muntra
 All done! 🎉
 ```
+
+> 💡 Above the message box you may see a bar with numbers like **+237 −0** and a **Create PR**
+> button. **Ignore it.** You save your work with GitHub Desktop instead (step 9).
 
 ✅ **Done** when you see **All done! 🎉**. If a step fails, the message tells you what to do.
 Fix it and ask Claude to run setup again. Steps already done are skipped.
@@ -377,7 +381,7 @@ Claude sometimes says no.
 | Claude says Node.js or Git is missing | Do [Before the event](#before-the-event-about-30-minutes) steps 2 and 5 again. Then quit and reopen the Claude app. |
 | Setup: *"These are still empty in .env"* | Ask Claude: "Help me fill in the missing values in .env." |
 | Setup: *"Supabase didn't accept the access token"* | Make a new token (step 3). Make sure you used **Create legacy token**: a normal token starts with no permissions. Ask Claude to replace `SUPABASE_ACCESS_TOKEN` in .env. |
-| Setup fails at *Creating the database tables* | The database password is probably wrong. In Supabase: **Project Settings → Database → Reset database password**, then update .env. |
+| Setup fails at *Creating the database tables* | The database password is probably wrong. In Supabase: **Database** (far-left menu) **→ Settings → Reset database password**, then ask Claude to update `SUPABASE_DB_PASSWORD` in .env. |
 | Setup fails at *Connecting Muntra* | Check the Muntra values on your card. Still failing? Ask a Muntra host. |
 | The dashboard page won't open | Ask Claude: "Start the dashboard again with npm run dashboard." |
 | I can't sign in to the dashboard | Check e-mail and password in .env. Ask Claude to run `npm run setup` again. |
