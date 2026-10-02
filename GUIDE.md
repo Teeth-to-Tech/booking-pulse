@@ -161,6 +161,10 @@ This token lets Claude set up your project for you.
 
 ✅ **Done** when your note has all three values filled in.
 
+👉 **What happens to these values?** In step 4 you give them to Claude, one at a time. Claude
+saves them in a settings file on your computer (`.env`), and the setup in step 5 uses them.
+Don't share them with anyone else, and don't paste them anywhere else.
+
 > Why the "legacy" token? The normal form starts with **no permissions**, and setup would
 > fail. The legacy token works in one click. It only gives access to your own Supabase
 > account, which contains nothing but this test project.
