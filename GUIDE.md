@@ -94,9 +94,8 @@ Notepad or similar) to paste values into as you go.
 
 At the event you'll get a card from the Muntra hosts with:
 
-- a login to a **Muntra test clinic**
-- a **Muntra API address** (`MUNTRA_API_BASE_URL`)
-- a **Muntra API key** (`MUNTRA_API_TOKEN`)
+- a login to your team's **Muntra test clinic**
+- a **Muntra API key** (`MUNTRA_API_TOKEN`) that belongs to that test clinic
 
 ### Step 1 – Make your own copy on GitHub
 
@@ -184,7 +183,8 @@ Don't share them with anyone else, and don't paste them anywhere else.
 
    ```
    Help me create my .env file from .env.example. Ask me for one value at a time,
-   tell me where I can find it, and fill it in for me. Skip MUNTRA_WEBHOOK_SECRET.
+   tell me where I can find it, and fill it in for me. Skip MUNTRA_WEBHOOK_SECRET
+   and keep MUNTRA_API_BASE_URL as it is.
    ```
 
 4. Answer Claude's questions with the values from your note and from the Muntra card:
@@ -196,7 +196,6 @@ Don't share them with anyone else, and don't paste them anywhere else.
    | `SUPABASE_DB_PASSWORD` | the database password from step 3 |
    | `DASHBOARD_EMAIL` | your e-mail (this is the login for *your* dashboard) |
    | `DASHBOARD_PASSWORD` | make up a password, at least 8 characters, and write it in your note |
-   | `MUNTRA_API_BASE_URL` | from the Muntra card |
    | `MUNTRA_API_TOKEN` | from the Muntra card |
 
 > 🔒 The `.env` file stays on your computer. It is never uploaded to GitHub.
@@ -267,9 +266,12 @@ That's expected.)
 
 1. Log in to your **Muntra test clinic**.
 2. Create a booking for one of the test patients that **started 15 minutes ago**.
-3. Watch your dashboard. The booking shows up by itself.
-4. Click **Show contact**. The patient's name and number are fetched live from Muntra.
-5. In Muntra, check the patient in as **arrived**. Watch them disappear from the list.
+3. Watch your dashboard. Within a few seconds the booking shows up by itself under
+   **Latest events** and **Not arrived yet**.
+4. Click **Show contact**. The patient's name and mobile number are fetched live from Muntra.
+   ("No mobile number" just means the test patient has none saved.)
+5. In Muntra, check the patient in as **arrived**. Within a few seconds they disappear from
+   the list, and an **updated** event appears under Latest events.
 
 **Congratulations, you've built a working Muntra integration!**
 
@@ -387,7 +389,7 @@ Claude sometimes says no.
 | Setup: *"These are still empty in .env"* | Ask Claude: "Help me fill in the missing values in .env." |
 | Setup: *"Supabase didn't accept the access token"* | Make a new token (step 3). Make sure you used **Create legacy token**: a normal token starts with no permissions. Ask Claude to replace `SUPABASE_ACCESS_TOKEN` in .env. |
 | Setup fails at *Creating the database tables* | The database password is probably wrong. In Supabase: **Database** (far-left menu) **→ Settings → Reset database password**, then ask Claude to update `SUPABASE_DB_PASSWORD` in .env. |
-| Setup fails at *Connecting Muntra* | Check the Muntra values on your card. Still failing? Ask a Muntra host. |
+| Setup fails at *Connecting Muntra* | Check that `MUNTRA_API_TOKEN` matches your card and that `MUNTRA_API_BASE_URL` is `https://api.muntra.com`. Still failing? Ask a Muntra host. |
 | The dashboard page won't open | Ask Claude: "Start the dashboard again with npm run dashboard." |
 | I can't sign in to the dashboard | Check e-mail and password in .env. Ask Claude to run `npm run setup` again. |
 | Pretend booking doesn't appear | Refresh the page. Then ask Claude to run `npm run test-webhook` and show you the result. |

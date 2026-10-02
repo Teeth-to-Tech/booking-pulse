@@ -50,7 +50,7 @@ short technical reference.
 
 ## Quick setup (technical reference)
 
-Requirements: Node.js 22+, Git, a Supabase project (EU region), a Muntra test clinic with API token.
+Requirements: Node.js 22+, Git, a Supabase project (EU region), a Muntra test clinic and an API token that belongs to it.
 
 ```bash
 cp .env.example .env      # fill in the values; comments explain where to find each
