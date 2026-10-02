@@ -100,7 +100,9 @@ At the event you'll get a card from the Muntra hosts with:
 2. Click the green **Use this template** button, then **Create a new repository**.
 3. **Owner:** choose your own name. **Repository name:** `booking-pulse`.
 4. Choose **Private**.
-5. Click **Create repository**.
+5. Check that **Start with a template** says **Teeth-to-Tech/booking-pulse**.
+   If it says *No template*, go back to step 1 and use the green button. Otherwise your copy will be empty.
+6. Click **Create repository**.
 
 ✅ You now have your own copy at `github.com/<your-name>/booking-pulse`.
 
