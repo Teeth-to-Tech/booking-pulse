@@ -136,6 +136,8 @@ Access token:
 4. **Database password:** click **Generate a password**.
 5. Click the **copy** icon next to the password and paste it into your note after *Database password:*.
    ⚠️ You can't see this password again later, so don't skip this.
+   *Forgot to copy it?* No problem. When the project is ready, go to **Project Settings**
+   (gear icon) → **Database** → **Reset database password**, generate a new one and copy that.
 6. **Region:** choose **Stockholm** (or Frankfurt). Always pick a European region.
 7. Click **Create new project**.
 8. Wait 1–2 minutes until the page stops saying the project is being set up.
