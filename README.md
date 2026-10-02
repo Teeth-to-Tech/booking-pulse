@@ -9,6 +9,10 @@ writing the code.
 
 **Stack:** GitHub · Supabase (database + Edge Functions) · plain HTML/JS · Claude
 
+> **Example code for learning.** This is not part of Muntra's CE-marked medical device
+> software and is not supported by Muntra. Licensed under [Apache 2.0](LICENSE); the license
+> gives no rights to the Muntra name or trademarks.
+>
 > **Test data only.** At the event, connect this to the Muntra *test* clinic you were given,
 > never to a real clinic. Using it with real patient data requires a separate agreement
 > with Muntra first.
@@ -48,8 +52,8 @@ someone, the name and number are fetched live from Muntra and shown, not saved.
 
 ### 1. Get your own copy
 
-Click **Use this template → Create a new repository** at the top of this page and make it
-**private**. Then clone it:
+Click **Use this template → Create a new repository** at the top of this page. Choose your
+own account as owner and make it **Private**. Then clone *your* copy:
 
 ```bash
 git clone https://github.com/<you>/<your-repo>.git
