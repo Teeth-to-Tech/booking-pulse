@@ -128,7 +128,7 @@ Now collect two values and paste them in your note:
 | What | Where to find it |
 |---|---|
 | **Project URL** | In your project: **Project Settings** (gear icon, bottom left) → **Data API** → *Project URL*. It looks like `https://abcdefghijklmnopqrst.supabase.co` |
-| **Access token** | Click your **avatar** (top right) → **Account preferences** → **Access Tokens** → **Generate new token**. Name it `booking-pulse` and copy it. |
+| **Access token** | Click your **avatar** (top right) → **Account preferences** → **Access Tokens** → **Generate new token**. In the window that opens, **don't** fill in the permissions. Instead click the small link **Create legacy token** (under *Resource access*). Name it `booking-pulse`, choose **30 days** if it asks, generate it and copy it. |
 
 ### Step 4 – Give Claude your settings
 
@@ -331,7 +331,7 @@ Claude sometimes says no.
 |---|---|
 | Claude says Node.js or Git is missing | Do [Before the event](#before-the-event-about-30-minutes) steps 2 and 5 again. Then quit and reopen the Claude app. |
 | Setup: *"These are still empty in .env"* | Ask Claude: "Help me fill in the missing values in .env." |
-| Setup: *"Supabase didn't accept the access token"* | Make a new token (step 3) and ask Claude to replace `SUPABASE_ACCESS_TOKEN` in .env. |
+| Setup: *"Supabase didn't accept the access token"* | Make a new token (step 3). Make sure you used **Create legacy token**: a normal token starts with no permissions. Ask Claude to replace `SUPABASE_ACCESS_TOKEN` in .env. |
 | Setup fails at *Creating the database tables* | The database password is probably wrong. In Supabase: **Project Settings → Database → Reset database password**, then update .env. |
 | Setup fails at *Connecting Muntra* | Check the Muntra values on your card. Still failing? Ask a Muntra host. |
 | The dashboard page won't open | Ask Claude: "Start the dashboard again with npm run dashboard." |
