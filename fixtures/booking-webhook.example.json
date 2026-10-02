@@ -1,0 +1,111 @@
+{
+  "data": {
+    "type": "booking",
+    "id": "48213",
+    "attributes": {
+      "class": "PUBLIC",
+      "summary": "Undersökning – Test Testsson",
+      "text": "Patienten vill ha morgontid",
+      "dtstart": "2026-10-08T09:00:00+02:00",
+      "dtend": "2026-10-08T09:45:00+02:00",
+      "reschedulable": true,
+      "duration_in_minutes": 45,
+      "description": null,
+      "location": null,
+      "transparent": false,
+      "status": "CONFIRMED",
+      "price": 1150,
+      "new_patient": false,
+      "patient_wants_earlier_slot": true,
+      "patient_made_late_cancellation": false,
+      "patient_failed_to_appear": false,
+      "patient_failed_to_appear_handled": false,
+      "patient_declaration_allowed": true,
+      "done": false,
+      "archived_at": null
+    },
+    "relationships": {
+      "booking_attendees": { "data": [{ "type": "booking_attendee", "id": "9001" }] },
+      "clinic": { "data": { "type": "clinic", "id": "12" } },
+      "user": { "data": { "type": "user", "id": "77" } },
+      "patient": { "data": { "type": "patient", "id": "5521" } },
+      "booking_type": { "data": { "type": "booking_type", "id": "3" } },
+      "procedure": { "data": { "type": "procedure", "id": "14" } }
+    }
+  },
+  "included": [
+    {
+      "type": "booking_attendee",
+      "id": "9001",
+      "attributes": {
+        "dtstart": "2026-10-08T09:00:00+02:00",
+        "dtend": "2026-10-08T09:45:00+02:00",
+        "partstat": "ACCEPTED",
+        "rsvp": true,
+        "first_sendout_on": "2026-10-01T08:00:00+02:00",
+        "arrived_at": null
+      }
+    },
+    {
+      "type": "clinic",
+      "id": "12",
+      "attributes": {
+        "clinic_name": "Testkliniken Tandvård",
+        "clinic_city": "Stockholm",
+        "clinic_address_1": "Testgatan 1",
+        "clinic_address_2": null,
+        "clinic_email_address": "test@example.com",
+        "clinic_phone_number": "08-000 00 00",
+        "clinic_postal_code": "11111"
+      }
+    },
+    {
+      "type": "user",
+      "id": "77",
+      "attributes": {
+        "first_name": "Tanja",
+        "last_name": "Tandläkare",
+        "social_security_number": "19800101-0000",
+        "title": "Leg. tandläkare"
+      }
+    },
+    {
+      "type": "patient",
+      "id": "5521",
+      "attributes": {
+        "address_1": "Påhittade vägen 2",
+        "address_2": null,
+        "city": "Stockholm",
+        "date_of_birth": "1912-12-12",
+        "deleted": false,
+        "e_mail_address": "test.testsson@example.com",
+        "first_name": "Test",
+        "last_name": "Testsson",
+        "gender": "M",
+        "patient_number": "P-5521",
+        "postal_code": "11122",
+        "phone_number_cell": "+46700000000",
+        "prefers_not_to_be_contacted_by_clinic": false,
+        "protected_identity": false,
+        "social_security_number": "19121212-1212",
+        "status": "ACTIVE"
+      }
+    },
+    {
+      "type": "booking_type",
+      "id": "3",
+      "attributes": {
+        "name": "Undersökning",
+        "text": null,
+        "color": "#4A90D9",
+        "text_color": "#FFFFFF",
+        "color_order": 1,
+        "duration_in_minutes": 45,
+        "reschedulable": true,
+        "patient_declaration_allowed": true,
+        "default": false
+      }
+    },
+    { "type": "procedure", "id": "14", "attributes": { "name": "Basundersökning" } }
+  ]
+}

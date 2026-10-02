@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Booking Pulse</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="pulse" id="live-dot" title="Live"></span>
+      <h1>Booking Pulse</h1>
+    </div>
+    <button id="sign-out" class="ghost" hidden>Sign out</button>
+  </header>
+
+  <main>
+    <section id="login" class="card login" hidden>
+      <h2>Sign in</h2>
+      <p class="muted">Use the staff account you created in Supabase → Authentication → Users.</p>
+      <form id="login-form">
+        <label>E-mail <input type="email" name="email" required autocomplete="username"></label>
+        <label>Password <input type="password" name="password" required autocomplete="current-password"></label>
+        <button type="submit">Sign in</button>
+        <p id="login-error" class="error" hidden></p>
+      </form>
+    </section>
+
+    <section id="app" hidden>
+      <div class="kpis">
+        <div class="kpi"><span class="label">Booked today</span><span class="value" id="kpi-today">–</span></div>
+        <div class="kpi alert"><span class="label">Not arrived</span><span class="value" id="kpi-missed">–</span></div>
+        <div class="kpi"><span class="label">Late cancellations · 30 d</span><span class="value" id="kpi-late">–</span></div>
+        <div class="kpi"><span class="label">No-shows · 30 d</span><span class="value" id="kpi-noshow">–</span></div>
+      </div>
+
+      <div class="grid">
+        <section class="card">
+          <div class="card-head">
+            <h2>Not arrived yet</h2>
+            <span class="muted">Started 10+ min ago, not checked in</span>
+          </div>
+          <ul id="missed-list" class="rows"></ul>
+          <p id="missed-empty" class="muted empty" hidden>Everyone is here. 🎉</p>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h2>Latest events</h2>
+            <span class="muted">Straight from Muntra webhooks</span>
+          </div>
+          <ul id="event-list" class="rows compact"></ul>
+          <p id="event-empty" class="muted empty" hidden>No events yet. Create a booking in Muntra or run <code>npm run test-webhook</code>.</p>
+        </section>
+      </div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>Bookings per day</h2>
+          <span class="muted">Last 30 days and next 14</span>
+        </div>
+        <div class="chart-wrap"><canvas id="daily-chart"></canvas></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

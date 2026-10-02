@@ -1,0 +1,10 @@
+project_id = "muntra-booking-pulse"
+
+# Muntra cannot send a Supabase login token, so the webhook endpoint is public
+# and protected by MUNTRA_WEBHOOK_SECRET instead.
+[functions.muntra-webhook]
+verify_jwt = false
+
+# Only signed-in dashboard users may look up patient contact details.
+[functions.patient-contact]
+verify_jwt = true

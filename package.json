@@ -1,0 +1,12 @@
+{
+  "name": "muntra-booking-pulse",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20.6" },
+  "scripts": {
+    "register-webhooks": "node --env-file=.env scripts/register-webhooks.mjs",
+    "test-webhook": "node --env-file=.env scripts/send-test-webhook.mjs",
+    "dashboard": "npx --yes serve web -l 5173",
+    "test": "DENO_NO_PACKAGE_JSON=1 deno test --allow-read supabase/functions"
+  }
+}
