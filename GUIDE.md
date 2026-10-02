@@ -116,19 +116,54 @@ At the event you'll get a card from the Muntra hosts with:
 
 ### Step 3 – Create your Supabase project
 
-1. Go to **supabase.com/dashboard** and click **New project**.
-2. **Name:** `booking-pulse`.
-3. **Database password:** click **Generate a password**, then **copy it and paste it in your
-   note**. You'll need it in a minute, and you can't see it again later.
-4. **Region:** choose **Stockholm** (or Frankfurt). Always pick a European region.
-5. Click **Create new project** and wait 1–2 minutes until it's ready.
+You'll collect **three values** in this step. Paste each one into your note as you go:
 
-Now collect two values and paste them in your note:
+```
+Database password:
+Project URL:
+Access token:
+```
 
-| What | Where to find it |
-|---|---|
-| **Project URL** | In your project: **Project Settings** (gear icon, bottom left) → **Data API** → *Project URL*. It looks like `https://abcdefghijklmnopqrst.supabase.co` |
-| **Access token** | Click your **avatar** (top right) → **Account preferences** → **Access Tokens** → **Generate new token**. In the window that opens, **don't** fill in the permissions. Instead click the small link **Create legacy token** (under *Resource access*). Name it `booking-pulse`, choose **30 days** if it asks, generate it and copy it. |
+#### 3a. Create the project
+
+1. Go to **supabase.com/dashboard**.
+2. Click the green **New project** button.
+3. **Name:** type `booking-pulse`.
+4. **Database password:** click **Generate a password**.
+5. Click the **copy** icon next to the password and paste it into your note after *Database password:*.
+   ⚠️ You can't see this password again later, so don't skip this.
+6. **Region:** choose **Stockholm** (or Frankfurt). Always pick a European region.
+7. Click **Create new project**.
+8. Wait 1–2 minutes until the page stops saying the project is being set up.
+
+#### 3b. Copy the Project URL
+
+1. In the menu on the left, click the **gear icon** (**Project Settings**) at the bottom.
+2. Click **Data API**.
+3. Find **Project URL**. It looks like `https://abcdefghijklmnopqrst.supabase.co`.
+4. Click **Copy** next to it and paste it into your note after *Project URL:*.
+
+#### 3c. Create an access token
+
+This token lets Claude set up your project for you.
+
+1. Click your **profile picture** in the top right corner.
+2. Click **Account preferences**.
+3. In the menu on the left, click **Access Tokens**.
+4. Click **Generate new token**. A panel slides in from the right.
+5. ⚠️ **Don't fill in this panel.** Look for the small underlined link
+   **Create legacy token** (next to *Resource access*) and click it.
+6. **Name:** type `booking-pulse`.
+7. If it asks how long the token should last, choose **30 days**.
+8. Click **Generate token**.
+9. Click **Copy** and paste the token into your note after *Access token:*.
+   ⚠️ You can't see the token again after you close the window.
+
+✅ **Done** when your note has all three values filled in.
+
+> Why the "legacy" token? The normal form starts with **no permissions**, and setup would
+> fail. The legacy token works in one click. It only gives access to your own Supabase
+> account, which contains nothing but this test project.
 
 ### Step 4 – Give Claude your settings
 
